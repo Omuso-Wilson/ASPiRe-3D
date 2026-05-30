@@ -1,0 +1,39 @@
+{
+  "name": "validation_case",
+  "core": {
+    "length_cm": 10.0,
+    "diameter_cm": 3.8,
+    "porosity": 0.21,
+    "permeability_mD": 120.0,
+    "clay_fraction": 0.08
+  },
+  "fluid": { "salinity_ppm": 12000.0, "temperature_C": 70.0, "pH": 10.5 },
+  "asp": { "surfactant": 1.0, "polymer": 1.0, "alkali": 1.0,
+           "salinity": 0.3, "initial_salinity": 1.0 },
+  "injection": { "flow_rate_ccmin": 2.0, "pore_volumes": 2.5 },
+  "numerics": { "courant": 2.0, "grid": [20, 8, 8] },
+  "physics": {
+    "enable_surfactant_adsorption": true,
+    "enable_polymer_retention": true,
+    "enable_damage": true,
+    "perm_model": "power_law"
+  },
+  "parameters": { "rrf_max": 4.0, "perm_exponent": 3.0, "k_ret": 2.0e-2 },
+  "calibration": {
+    "enabled": true,
+    "method": "least_squares",
+    "max_nfev": 60,
+    "synthetic_truth": { "rrf_max": 5.0, "k_ret": 3.0e-2 },
+    "parameters": [
+      { "name": "rrf_max", "init": 3.0,    "min": 1.0,    "max": 10.0 },
+      { "name": "k_ret",   "init": 1.0e-2, "min": 1.0e-3, "max": 1.0e-1, "log": true }
+    ]
+  },
+  "sensitivity": { "enabled": true, "type": "sobol", "n_base": 10,
+    "parameters": [
+      { "name": "rrf_max", "init": 3.0,    "min": 1.0,    "max": 10.0 },
+      { "name": "k_ret",   "init": 1.0e-2, "min": 1.0e-3, "max": 1.0e-1, "log": true }
+    ] },
+  "uncertainty": { "enabled": false },
+  "output": { "prefix": "validation", "save_figures": true, "save_report": true }
+}

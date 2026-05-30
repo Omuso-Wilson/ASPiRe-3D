@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "NigerDelta_coreA",
+    "core_length_m": 0.10,
+    "core_diameter_m": 0.038,
+    "porosity": 0.21,
+    "flow_rate_ml_min": 2.0,
+    "baseline_permeability_mD": 120.0,
+    "injected_concentrations": {"surfactant": 2000.0, "polymer": 1500.0}
+  },
+  "signals": [
+    {"canonical": "dp_history", "file": "dp.csv",
+     "column": "dP_psi", "unit": "psi",
+     "clock_column": "time_min", "clock_unit": "min",
+     "uncertainty_column": "dP_sigma_psi"},
+    {"canonical": "surfactant_effluent", "file": "surf.csv",
+     "column": "C_surf_ppm", "clock_column": "PV", "clock_unit": "PV",
+     "normalise_by": 2000.0, "uncertainty": 0.02},
+    {"canonical": "k_ratio_history", "file": "kratio.csv",
+     "column": "k_ratio", "clock_column": "PV", "clock_unit": "PV"}
+  ]
+}

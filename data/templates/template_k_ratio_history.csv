@@ -1,0 +1,6 @@
+# Permeability-ratio history template (k/k0)
+#   <clock>, <k_over_k0>
+PV,k_ratio
+0.0,1.0
+1.0,0.62
+2.0,0.31

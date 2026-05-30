@@ -1,0 +1,60 @@
+{
+  "name": "baseline_case",
+  "core": {
+    "length_cm": 10.0,
+    "diameter_cm": 3.8,
+    "porosity": 0.20,
+    "permeability_mD": 100.0,
+    "clay_fraction": 0.05
+  },
+  "fluid": {
+    "salinity_ppm": 10000.0,
+    "temperature_C": 25.0,
+    "pH": 9.5
+  },
+  "asp": {
+    "surfactant": 1.0,
+    "polymer": 1.0,
+    "alkali": 1.0,
+    "salinity": 0.3,
+    "initial_salinity": 1.0
+  },
+  "injection": {
+    "flow_rate_ccmin": 2.0,
+    "pore_volumes": 3.0
+  },
+  "numerics": {
+    "courant": 1.0,
+    "dispersivity_m": 5.0e-4,
+    "reflow_tolerance": 0.03,
+    "grid": [30, 12, 12]
+  },
+  "physics": {
+    "enable_surfactant_adsorption": true,
+    "enable_polymer_retention": true,
+    "enable_precipitation": false,
+    "enable_fines": false,
+    "enable_damage": true,
+    "perm_model": "kozeny_carman",
+    "isotherm": "langmuir"
+  },
+  "parameters": {
+    "q_max": 1.5e-4,
+    "K_L": 4.0,
+    "k_ads": 3.0e-2,
+    "sigma_max": 2.0e-4,
+    "k_ret": 2.0e-2,
+    "rrf_max": 4.0,
+    "perm_gamma": 0.5,
+    "perm_exponent": 3.0
+  },
+  "calibration": { "enabled": false },
+  "sensitivity": { "enabled": false },
+  "uncertainty": { "enabled": false },
+  "output": {
+    "outdir": "experiments/outputs",
+    "save_figures": true,
+    "save_report": true,
+    "prefix": "baseline"
+  }
+}
